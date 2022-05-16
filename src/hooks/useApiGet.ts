@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from "axios";
 import { useEffect, useState } from "react";
 import isEqual from "react-fast-compare";
 
-type GetState<T> =
+export type GetState<T> =
   | { loaded: false }
   | { loaded: true; error: true; errorMessage: string }
   | { loaded: true; error: false; data: T };
