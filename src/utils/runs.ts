@@ -1,5 +1,5 @@
-import { BojScoreboardRun } from "../types/BojScoreboardRun";
-import { BojScoreboardRunsResponse } from "../types/BojScoreboardRunsResponse";
+import { BojScoreboardRun } from "../types/bojBoard/BojBoardRun";
+import { BojScoreboardRunsResponse } from "../types/bojBoard/BojBoardRunsResponse";
 
 export const runsToTeams = (runs: BojScoreboardRunsResponse) => {
   const teamRuns = new Map<number, BojScoreboardRun[]>();

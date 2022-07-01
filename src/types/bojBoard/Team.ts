@@ -1,4 +1,4 @@
-import { BojScoreboardTeam } from "./BojScoreboardTeam";
+import { BojScoreboardTeam } from "./BojBoardTeam";
 
 export interface Team extends BojScoreboardTeam {
   score: number;

@@ -1,14 +1,14 @@
 import { EmptyStatePlaceholder, Space } from "@solved-ac/ui-react";
 import { useMemo, useState } from "react";
 import useApiGet from "../hooks/useApiGet";
-import { BojScoreboardInfoResponse } from "../types/BojScoreboardInfoResponse";
-import { BojScoreboardRunsResponse } from "../types/BojScoreboardRunsResponse";
-import { BojScoreboardTeam } from "../types/BojScoreboardTeam";
+import { BojBoardContestResponse } from "../types/bojBoard/BojBoardContestResponse";
+import { BojScoreboardRunsResponse } from "../types/bojBoard/BojBoardRunsResponse";
+import { BojScoreboardTeam } from "../types/bojBoard/BojBoardTeam";
 import { runsToTeams } from "../utils/runs";
 
 interface Props {
   contestId: string;
-  info: BojScoreboardInfoResponse | null;
+  info: BojBoardContestResponse | null;
 }
 
 const Tools: React.FC<Props> = (props) => {

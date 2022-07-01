@@ -1,7 +1,7 @@
-import { BojScoreboardProblem } from "./BojScoreboardProblem";
-import { BojScoreboardTeam } from "./BojScoreboardTeam";
+import { BojScoreboardProblem } from "./BojBoardProblem";
+import { BojScoreboardTeam } from "./BojBoardTeam";
 
-interface BojScoreboardInfoResponseBase {
+interface BojBoardContestResponseBase {
   id: number;
   start: number;
   end: number;
@@ -15,7 +15,7 @@ interface BojScoreboardInfoResponseBase {
   teams: BojScoreboardTeam[];
 }
 
-export type BojScoreboardInfoResponse = BojScoreboardInfoResponseBase &
+export type BojBoardContestResponse = BojBoardContestResponseBase &
   (
     | {
         score: 0;
