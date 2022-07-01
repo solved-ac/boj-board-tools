@@ -1,4 +1,4 @@
-import { Button, Divider, Space } from "@solved-ac/ui-react";
+import { Button, Divider, Space, TextField, Typo } from "@solved-ac/ui-react";
 import React, { useState } from "react";
 import Tools from "./components/Tools";
 import useApiGet from "./hooks/useApiGet";
@@ -10,14 +10,16 @@ const App: React.FC = () => {
   const [contestInfoCache, setContestInfoCache] =
     useState<BojScoreboardInfoResponse | null>(null);
   const contestInfo = useApiGet<BojScoreboardInfoResponse>(
-    `https://boj-scoreboard-relay.shiftpsh.com/?u=/${contestIdInput}/info.json`
+    `https://boj-scoreboard-relay.shiftpsh.com/?u=/board/${contestIdInput}/info.json`
   );
 
   return (
     <div style={{ padding: 32 }}>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
         <header style={{ flex: "2 0 0", minWidth: 480 }}>
-          <h1>BOJ 스코어보드 툴</h1>
+          <Typo h1 no-margin>
+            BOJ 스코어보드 툴
+          </Typo>
           by <a href="https://solved.ac">solved.ac</a>
         </header>
         <div style={{ flex: "1 0 0", minWidth: 240 }}>
@@ -35,7 +37,7 @@ const App: React.FC = () => {
           </div>
           <Space h={8} />
           <div style={{ display: "flex" }}>
-            <input
+            <TextField<"input">
               type="number"
               placeholder="대회 ID"
               value={contestIdInput}

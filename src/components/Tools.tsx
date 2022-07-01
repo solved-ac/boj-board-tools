@@ -17,7 +17,7 @@ const Tools: React.FC<Props> = (props) => {
   const [input, setInput] = useState<string>("0");
 
   const contestRuns = useApiGet<BojScoreboardRunsResponse>(
-    `https://boj-scoreboard-relay.shiftpsh.com/?u=/${contestId}/runs.json`
+    `https://boj-scoreboard-relay.shiftpsh.com/?u=/board/${contestId}/runs.json`
   );
 
   const teamsMap = useMemo(() => {

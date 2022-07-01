@@ -1,7 +1,7 @@
+import { ThemeProvider } from "@emotion/react";
 import { SolvedGlobalStyles, solvedThemes } from "@solved-ac/ui-react";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { ThemeProvider } from "styled-components";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
