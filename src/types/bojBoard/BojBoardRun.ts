@@ -2,7 +2,7 @@ interface BojScoreboardRunBase {
   id: number;
   problem: number;
   result: number;
-  frozen: false;
+  frozen: boolean;
   team: number;
   time: number;
 }

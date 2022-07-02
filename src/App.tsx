@@ -2,13 +2,14 @@ import { Button, Divider, Space, TextField, Typo } from "@solved-ac/ui-react";
 import React, { useState } from "react";
 import Tools from "./components/Tools";
 import useApiGet from "./hooks/useApiGet";
-import { ContestInfo, useContestInfo } from "./hooks/useContestInfo";
+import { useContestInfo } from "./hooks/useContestInfo";
 import { BojBoardContestResponse } from "./types/bojBoard/BojBoardContestResponse";
+import { Contest } from "./types/general/Contest";
 
 const App: React.FC = () => {
   const [contestIdInput, setContestIdInput] = useState<string>("");
   const [contestId, setContestId] = useState<string>("");
-  const [contestInfoCache, setContestInfoCache] = useState<ContestInfo | null>(
+  const [contestInfoCache, setContestInfoCache] = useState<Contest | null>(
     null
   );
 
@@ -32,7 +33,7 @@ const App: React.FC = () => {
               width: "100%",
             }}
           >
-            {contestInfo ? contestInfo.data.title : "대회 ID"}
+            {contestInfo ? contestInfo.title : "대회 ID"}
           </div>
           <Space h={8} />
           <div style={{ display: "flex" }}>
