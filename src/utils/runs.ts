@@ -1,10 +1,11 @@
-import { BojScoreboardRun } from "../types/BojScoreboardRun";
-import { BojScoreboardRunsResponse } from "../types/BojScoreboardRunsResponse";
+import { BojScoreboardRun } from "../types/bojBoard/BojBoardRun";
+import { BojScoreboardRunsResponse } from "../types/bojBoard/BojBoardRunsResponse";
+import { Run } from "../types/general/Run";
 
-export const runsToTeams = (runs: BojScoreboardRunsResponse) => {
-  const teamRuns = new Map<number, BojScoreboardRun[]>();
+export const runsToTeams = (runs: Run[]) => {
+  const teamRuns = new Map<string, Run[]>();
 
-  runs.runs.forEach((run) => {
+  runs.forEach((run) => {
     const arr = teamRuns.get(run.team);
     if (arr === undefined) {
       teamRuns.set(run.team, [run]);
@@ -17,7 +18,7 @@ export const runsToTeams = (runs: BojScoreboardRunsResponse) => {
     id: teamId,
     runs,
     solvedCount: new Set(
-      runs.filter((run) => run.result === 1).map((run) => run.problem)
+      runs.filter((run) => run.result === "Yes").map((run) => run.problem)
     ).size,
   }));
 };

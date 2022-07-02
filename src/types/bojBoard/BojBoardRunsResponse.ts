@@ -1,4 +1,4 @@
-import { BojScoreboardRun } from "./BojScoreboardRun";
+import { BojScoreboardRun } from "./BojBoardRun";
 
 export interface BojScoreboardRunsResponse<T extends 0 | 1 = 0> {
   timestamp: number;

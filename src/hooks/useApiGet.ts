@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import isEqual from "react-fast-compare";
 
 export type GetState<T> =
-  | { loaded: false }
-  | { loaded: true; error: true; errorMessage: string }
+  | { loaded: false; error: boolean; data?: T }
+  | { loaded: true; error: true; data?: T; errorMessage: string }
   | { loaded: true; error: false; data: T };
 
 const useApiGet = <T = any>(
@@ -15,7 +15,10 @@ const useApiGet = <T = any>(
   const [stateParams, setStateParams] = useState<
     AxiosRequestConfig | undefined
   >(params);
-  const [state, setState] = useState<GetState<T>>({ loaded: false });
+  const [state, setState] = useState<GetState<T>>({
+    loaded: false,
+    error: false,
+  });
 
   useEffect(() => {
     if (url !== stateUrl) setStateUrl(url);
@@ -28,7 +31,7 @@ const useApiGet = <T = any>(
   useEffect(() => {
     const source = axios.CancelToken.source();
     const token = source.token;
-    setState({ loaded: false });
+    setState({ loaded: false, error: false });
     axios
       .get<T>(stateUrl, { ...stateParams, cancelToken: token })
       .then((res) => setState({ loaded: true, error: false, data: res.data }))
