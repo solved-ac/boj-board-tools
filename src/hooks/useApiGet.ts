@@ -33,7 +33,11 @@ const useApiGet = <T = any>(
     const token = source.token;
     setState({ loaded: false, error: false });
     axios
-      .get<T>(stateUrl, { ...stateParams, cancelToken: token })
+      .get<T>(stateUrl, {
+        ...stateParams,
+        withCredentials: true,
+        cancelToken: token,
+      })
       .then((res) => setState({ loaded: true, error: false, data: res.data }))
       .catch((err) =>
         setState({
