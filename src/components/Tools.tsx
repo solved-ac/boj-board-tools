@@ -176,7 +176,7 @@ const Tools: React.FC<Props> = (props) => {
                   </Cell>
                   <Cell>
                     <pre>{`\\begin{itemize}
-\\item 프리즈 전까지 제출 ${tried}번, 정답 ${accepted}팀 (정답률 ${ratio}\%)
+\\item 프리즈 전까지 제출 ${tried}번, 정답 ${accepted}팀 (정답률 ${ratio}\\%)
 \\item 처음 푼 팀: ${
                       p.firstSolveRun && p.firstSolveRun.result === "Yes"
                         ? `\\textbf{${firstSolveTeam}}${firstSolveContestants}, ${p.firstSolveRun.submissionTime}분`
