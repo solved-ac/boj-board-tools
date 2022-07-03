@@ -1,5 +1,3 @@
-import { BojScoreboardRun } from "../types/bojBoard/BojBoardRun";
-import { BojScoreboardRunsResponse } from "../types/bojBoard/BojBoardRunsResponse";
 import { Run } from "../types/general/Run";
 
 export const runsToTeams = (runs: Run[]) => {

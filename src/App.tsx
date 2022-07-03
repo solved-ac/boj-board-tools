@@ -1,9 +1,7 @@
 import { Button, Divider, Space, TextField, Typo } from "@solved-ac/ui-react";
 import React, { useState } from "react";
 import Tools from "./components/Tools";
-import useApiGet from "./hooks/useApiGet";
 import { useContestInfo } from "./hooks/useContestInfo";
-import { BojBoardContestResponse } from "./types/bojBoard/BojBoardContestResponse";
 import { Contest } from "./types/general/Contest";
 
 const App: React.FC = () => {

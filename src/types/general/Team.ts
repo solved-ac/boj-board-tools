@@ -4,6 +4,7 @@ import { SpotboardTeam } from "../spotboard/SpotboardTeam";
 export interface Team {
   id: string;
   name: string;
+  fullName: string;
 }
 
 export const toTeam = (team: BojScoreboardTeam | SpotboardTeam): Team => {
@@ -12,10 +13,12 @@ export const toTeam = (team: BojScoreboardTeam | SpotboardTeam): Team => {
     return {
       id: team.id,
       name: teamName || team.name,
+      fullName: team.name,
     };
   }
   return {
     id: team.id.toString(),
     name: team.team,
+    fullName: team.team,
   };
 };
