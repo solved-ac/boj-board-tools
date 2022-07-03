@@ -9,14 +9,10 @@ import {
   TableContainer,
   TableHead,
   TextField,
-  Typo,
+  Typo
 } from "@solved-ac/ui-react";
 import { useMemo, useState } from "react";
-import useApiGet from "../hooks/useApiGet";
 import { useRunsInfo } from "../hooks/useRunsInfo";
-import { BojBoardContestResponse } from "../types/bojBoard/BojBoardContestResponse";
-import { BojScoreboardRunsResponse } from "../types/bojBoard/BojBoardRunsResponse";
-import { BojScoreboardTeam } from "../types/bojBoard/BojBoardTeam";
 import { Contest } from "../types/general/Contest";
 import { Run } from "../types/general/Run";
 import { Team } from "../types/general/Team";
