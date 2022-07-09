@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/boj-board-tools/static/js/main.5168cbfc.js",
+    "main.js": "/boj-board-tools/static/js/main.cbe9c144.js",
     "static/js/787.eb7cc26b.chunk.js": "/boj-board-tools/static/js/787.eb7cc26b.chunk.js",
     "index.html": "/boj-board-tools/index.html",
-    "main.5168cbfc.js.map": "/boj-board-tools/static/js/main.5168cbfc.js.map",
+    "main.cbe9c144.js.map": "/boj-board-tools/static/js/main.cbe9c144.js.map",
     "787.eb7cc26b.chunk.js.map": "/boj-board-tools/static/js/787.eb7cc26b.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.5168cbfc.js"
+    "static/js/main.cbe9c144.js"
   ]
 }
