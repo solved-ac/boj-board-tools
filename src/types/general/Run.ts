@@ -15,7 +15,7 @@ export const toRun = (run: BojScoreboardRun | SpotboardRun): Run => {
     return {
       id: run.id.toString(),
       problem: run.problem,
-      result: run.frozen ? "Pending" : run.result ? "Yes" : "No",
+      result: run.result ? "Yes" : "No",
       frozen: run.frozen,
       team: run.team.toString(),
       submissionTime: run.time,
