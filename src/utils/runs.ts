@@ -12,11 +12,23 @@ export const runsToTeams = (runs: Run[]) => {
     }
   });
 
-  return Array.from(teamRuns.entries()).map(([teamId, runs]) => ({
-    id: teamId,
-    runs,
-    solvedCount: new Set(
-      runs.filter((run) => run.result === "Yes").map((run) => run.problem)
-    ).size,
-  }));
+  return Array.from(teamRuns.entries()).map(([teamId, runs]) => {
+    const scoreMap = new Map<number, number>();
+    runs.forEach((run) => {
+      const prevScore = scoreMap.get(run.problem);
+      if (prevScore === undefined) {
+        scoreMap.set(run.problem, run.score);
+      } else {
+        scoreMap.set(run.problem, Math.max(prevScore, run.score));
+      }
+    });
+    const scoreArr = Array.from(scoreMap.entries());
+
+    return {
+      id: teamId,
+      runs,
+      solvedCount: scoreArr.filter(([, score]) => score > 0).length,
+      score: scoreArr.reduce((acc, [, score]) => acc + score, 0),
+    };
+  });
 };

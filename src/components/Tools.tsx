@@ -9,7 +9,7 @@ import {
   TableContainer,
   TableHead,
   TextField,
-  Typo
+  Typo,
 } from "@solved-ac/ui-react";
 import { useMemo, useState } from "react";
 import { useRunsInfo } from "../hooks/useRunsInfo";
@@ -28,7 +28,7 @@ const Tools: React.FC<Props> = (props) => {
 
   const [input, setInput] = useState<string>("0");
 
-  const runsInfo = useRunsInfo(+contestId);
+  const runsInfo = useRunsInfo(+contestId, info);
 
   const teamsMap = useMemo(() => {
     const m = new Map<string, Team>();
@@ -44,11 +44,11 @@ const Tools: React.FC<Props> = (props) => {
         ...team,
         ...teamsMap.get(team.id),
       }))
-      .sort((a, b) => b.solvedCount - a.solvedCount);
+      .sort((a, b) => b.score - a.score);
   }, [runsInfo, teamsMap]);
 
   const filteredTeamDatum = useMemo(() => {
-    return teamDatum.filter((team) => team.solvedCount >= Number(input));
+    return teamDatum.filter((team) => team.score >= Number(input));
   }, [teamDatum, input]);
 
   const problemStats = useMemo(() => {
@@ -101,11 +101,12 @@ const Tools: React.FC<Props> = (props) => {
           value={input}
           onChange={(e) => setInput(e.target.value.replace(/[^0-9]/g, ""))}
         />
-        솔브 이상
+        {info.score ? <>점 이상</> : <>솔브 이상</>}
       </div>
       <Space h={16} />
       <TextField<"textarea">
         multiline
+        spellCheck={false}
         value={filteredTeamDatum.map((team) => team.name || "").join(", ")}
         style={{
           width: "100%",

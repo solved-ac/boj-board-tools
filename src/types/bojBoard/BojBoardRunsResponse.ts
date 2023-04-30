@@ -1,8 +1,8 @@
 import { BojScoreboardRun } from "./BojBoardRun";
 
-export interface BojScoreboardRunsResponse<T extends 0 | 1 = 0> {
+export interface BojScoreboardRunsResponse {
   timestamp: number;
-  runs: BojScoreboardRun<T>[];
+  runs: BojScoreboardRun[];
   users: number;
   problems: number;
   noUpdate: boolean;
